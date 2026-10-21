@@ -19,3 +19,13 @@ Baza wiedzy z wyciągniętymi wnioskami i zasadami, do których agenci `@planner
 ### 2. Typowalność i Clean Code
 - **Zasada:** Każda funkcja i moduł muszą posiadać ścisłe typowanie. Unikaj stosowania typów niejawnych (np. `any`).
 - **Tagi:** `#zasada` `#architektura` `#typowanie`
+
+### 3. Bezpieczne indeksowanie tablic asocjacyjnych w Bash
+- **Zasada:** Unikaj używania niezaufanych wartości jako indeksów tablic asocjacyjnych w skryptach Bash. Gdy zachowanie skryptu zależy od wersji Bash, sprawdź minimalną wymaganą wersję na początku działania.
+- **Powiązane:** [[Bugs_Log]] · [[Workspace_Setup]]
+- **Tagi:** `#zasada` `#bezpieczeństwo` `#bash` `#best-practice`
+
+### 4. Filtry Git podczas checkoutu i merge
+- **Zasada:** Traktuj checkout i merge Git jako operacje, które mogą uruchamiać lokalnie skonfigurowane filtry. Sprawdzaj i dokumentuj tę granicę zaufania przed aktualizacją plików.
+- **Powiązane:** [[Bugs_Log]] · [[Workspace_Setup]]
+- **Tagi:** `#zasada` `#bezpieczeństwo` `#git` `#best-practice`
