@@ -13,6 +13,8 @@ Podczas realizacji zadań programistycznych postępuj zgodnie z poniższym przep
 Zasady ogólne:
 - Pisz kod w pełni wytypowany i przetestowany.
 - Używaj konwencji Conventional Commits.
+- **Granica workspace:** Operuj wyłącznie w folderach wymienionych w aktywnym pliku `.code-workspace`. Rozwiązuj ścieżki względne względem tego pliku i uwzględniaj kanonikalizację ścieżek oraz symlinków. Nie odczytuj ani nie modyfikuj ścieżek poza workspace; jeśli zadanie wymaga takiej ścieżki, zatrzymaj się i poproś użytkownika o dodanie katalogu do workspace.
+- **Ochrona `.env`:** Nigdy nie wysyłaj, nie załączaj, nie wklejaj ani nie przekazuj pliku `.env` lub jego zawartości do czatu, narzędzi zewnętrznych, repozytoriów ani usług. Nie wypisuj jego treści w logach, terminalu, diffach ani raportach. Nie dodawaj `.env` do stagingu, commitów ani uploadów; stage'uj jawne ścieżki zamiast używać poleceń zbiorczych, które mogłyby go objąć.
 - Każdy diagram architektury oraz diagram troubleshootingowy (wyjaśniający błąd) musi być generowany w składni Mermaid.
 - Każdy dokument techniczny opisujący architekturę, przepływ danych lub moduł musi zawierać wyraźną sekcję diagramu Mermaid, np. `flowchart` lub `sequenceDiagram`.
 - Dokumentację repozytorium kodu zapisuj w centralnym repozytorium konfiguracji w `docs/<slug-projektu>/`; globalne rejestry pozostają w głównym `docs/`.
