@@ -22,6 +22,7 @@ Rejestr służy do śledzenia zużycia kontekstu i optymalizacji pracy agentów.
 | Data | Zadanie / sesja | Model / agenci | Status | Tokeny wejściowe | Tokeny wyjściowe | Koszt | Źródło / metoda | Optymalizacja / uwagi |
 | :--- | :--- | :--- | :--- | ---: | ---: | ---: | :--- | :--- |
 | YYYY-MM-DD | Opis zadania | Model, `@agent` | `zmierzone` / `szacunek` / `niedostępne` | N/D | N/D | N/D | Źródło telemetryki, metoda lub `brak` | Zmiana ograniczająca zbędny kontekst |
+| 2026-10-21 | Moduł loggera i dokumentacja | `@planner`, `@coder`, `@docs` | `niedostępne` | N/D | N/D | N/D | brak telemetryki tokenów dostępnej dla tej sesji Copilot Chat | `python -m py_compile` i smoke test idempotencji przeszły. |
 
 ## Praktyki ograniczania kontekstu
 

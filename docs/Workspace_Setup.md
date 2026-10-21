@@ -12,7 +12,7 @@ Tagi: #vscode #multi-repo #automatyzacja
 
 Konfiguracja agentów (`.github/agents/` i `.github/copilot-instructions.md`) należy do centralnego repozytorium konfiguracyjnego. Repozytoria kodu pozostają odrębne i niezależne. Plik VS Code `.code-workspace` łączy centralną konfigurację oraz jedno lub więcej repozytoriów kodu jako foldery workspace; nie scala repozytoriów Git.
 
-Powiązane notatki: [[Lessons_Learned]], [[Bugs_Log]] oraz [[README]].
+Powiązane notatki: [[Lessons_Learned]], [[Bugs_Log]], [[Token_Metrics]] oraz [[README]].
 
 ```mermaid
 flowchart LR
@@ -26,7 +26,25 @@ flowchart LR
     Workspace --> VSCode[VS Code: wspólne okno, osobne katalogi Git]
 ```
 
-**Uwaga o obecnym pliku:** bieżący workspace zawiera `../ai-multiagent-obsidian-template` oraz `.`. Po rozwiązaniu ścieżek do postaci kanonicznej obie wskazują ten sam katalog repozytorium. To duplikat, a nie dwie niezależne kopie. Skrypt wykrywa i odrzuca taki przypadek przed modyfikacjami; nie naprawia automatycznie istniejących wpisów.
+## Bieżący workspace w Codespace
+
+Plik `ai-multiagent-obsidian-template.code-workspace` zawiera dwa foldery liczone względem katalogu, w którym leży:
+
+| Folder workspace | Ścieżka względna | Katalog kanoniczny | Zawartość |
+| :--- | :--- | :--- | :--- |
+| AI Agents & Obsidian Config (Global) | `.` | `/workspaces/ai-multiagent-obsidian-template` | Instrukcje agentów i centralna dokumentacja |
+| Kod Źródłowy (test-project-code) | `../test-project-code` | `/workspaces/test-project-code` | Kod projektu; katalog nie jest obecnie repozytorium Git |
+
+Ścieżki `.` i `../test-project-code` wskazują odrębne katalogi: centralną konfigurację w `/workspaces/ai-multiagent-obsidian-template` oraz projekt w `/workspaces/test-project-code`. Sprawdzenie potwierdziło, że katalog projektu nie jest repozytorium Git. Dokumentację projektu zapisuj centralnie w `docs/test-project-code/`; nie dodawaj jej do katalogu projektu. Globalne rejestry pozostają bezpośrednio w `docs/`.
+
+Po zainicjowaniu repozytorium Git w katalogu projektu, używając `init-ai.sh` dla tego układu, podaj repozytorium konfiguracji jako `--config-dir .` i projekt jako `--repo ../test-project-code`. Jeśli skrypt aktualizuje istniejący plik workspace, wymagane jest jawne `--update-workspace`.
+
+### Rozdzielanie commitów
+
+- Zmiany konfiguracji i workspace commituj wyłącznie w centralnym repozytorium `/workspaces/ai-multiagent-obsidian-template`.
+- Kod loggera commituj w repozytorium projektu `/workspaces/test-project-code` dopiero po `git init`. Repozytorium nie ma remote, więc commit pozostaje lokalny i nie wykonuj push.
+- Każdy z tych funkcjonalnych commitów dokumentuj w osobnym, nowym pliku timestampowanym: dokument commitu konfiguracji w głównym `docs/`, a dokument commitu projektu w `docs/test-project-code/`. Podaj hash oraz GitHub permalink, jeśli repo ma remote; bez remote podaj pełny hash i wynik `git show <hash>`.
+- Docs-only commit, który ewidencjonuje hashe poprzednich commitów, nie wymaga własnego dokumentu: samodokumentowanie go tworzyłoby nieskończony łańcuch dokumentów.
 
 ## Wymagania
 
