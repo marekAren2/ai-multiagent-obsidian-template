@@ -1,0 +1,8 @@
+{
+  "github.copilot.chat.welcomeMessage": "Wieloagentowe środowisko Copilot (z obsługą Obsidian, Bazy Błędów z Diagramami Mermaid i Git) jest gotowe! Użyj @planner, @coder, @reviewer, @security, @docs, @diagrams lub @git.",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true
+  }
+}
