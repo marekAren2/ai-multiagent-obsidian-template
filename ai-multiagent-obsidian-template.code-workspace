@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "🧠 AI Agents & Obsidian Config (Global)",
+      "path": "../ai-multiagent-obsidian-template"
+    },
+    {
+      "name": "💻 Kod Źródłowy (ai-multiagent-obsidian-template)",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "github.copilot.chat.welcomeMessage": "Wieloagentowe środowisko Multi-Repo gotowe dla: ai-multiagent-obsidian-template!"
+  }
+}

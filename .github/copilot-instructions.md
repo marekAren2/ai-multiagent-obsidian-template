@@ -15,3 +15,4 @@ Zasady ogólne:
 - Używaj konwencji Conventional Commits.
 - Każdy diagram architektury oraz diagram troubleshootingowy (wyjaśniający błąd) musi być generowany w składni Mermaid.
 - Każdy wykryty i naprawiony błąd musi zostać udokumentowany pod kątem unikania go w przyszłych projektach.
+- **Oszczędzanie kontekstu i raportowanie tokenów:** Korzystaj tylko z kontekstu potrzebnego do zadania; czytaj pliki i powtarzaj informacje selektywnie, unikając zbędnych odczytów i powtórzeń. Odwołuj się do konkretnych plików, funkcji lub sekcji zamiast wklejać całe biblioteki. Raportuj tokeny tylko na podstawie wiarygodnego źródła telemetryki; nie wymyślaj ani nie przedstawiaj szacunków jako pomiarów. Gdy zapisujesz metryki, oznacz je jako `zmierzone`, `szacunek` albo `niedostępne`, podaj źródło lub metodę i założenia; niedostępnych wartości nie zgaduj. Rejestr prowadź w [[Token_Metrics]].
